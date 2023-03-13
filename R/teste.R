@@ -1,1 +1,2 @@
-# teste
+library(gamlss)
+example(gamlss)
