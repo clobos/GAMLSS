@@ -1,5 +1,6 @@
 --- 
-title: "GAMLSS"
+lang: "PT-br"
+title: "Introdução ao GAMLSS"
 author: "Gustavo Thomas e Cristian Villegas"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -14,6 +15,14 @@ description: |
 link-citations: yes
 github-repo: rstudio/bookdown-demo
 ---
+
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(message = FALSE,
+                      warning = TRUE,
+                      cache = TRUE)
+```
+
 
 # Introdução
 
@@ -30,7 +39,7 @@ plot(R~H, data=rent, col=gray(0.7), pch=15, cex=0.5)
 plot(R~loc, data=rent, col=gray(0.7), pch=15, cex=0.5) 
 ```
 
-```{r, eval=FALSE}
+```{r}
 par(PPP)
 # ----eval=FALSE----------------------------------------------------------
 ## R ~ Fl+A+H+loc
@@ -39,11 +48,13 @@ r1 <-  gamlss(R ~ Fl+A+H+loc, family=NO,  data=rent, trace=FALSE)
 l1 <- lm(R ~ Fl+A+H+loc,data=rent)
 coef(r1)
 coef(l1)
-## ----tidy=TRUE, tidy.opts=list(width=60)---------------------------------
+```
+
+
+```{r, tidy=TRUE, tidy.opts=list(width=60)}
 fitted(r1, "sigma")[1]
 summary(r1)
 
-## ------------------------------------------------------------------------
 Rsq(r1)
 
 ## ----LM_residual_plot,echo=TRUE,fig.show='hide', fig.asp=1---------------
@@ -114,62 +125,54 @@ r7 <-  gamlss(R ~ pb(Fl)+pb(A)+H+loc,sigma.fo=~pb(Fl)+pb(A)+H+loc,
               trace=FALSE)
 
 AIC(r4, r6, r7)
-
 ## ----WP_BCCG1_CH1, echo=TRUE, fig.show='hide', fig.asp=1-----------------
 wp(r6, ylim.all=.6) ;  title("r6: BCCG(mu, sigma)")
 wp(r7, ylim.all=.6) ;  title("r7:  BCCG(mu, sigma, nu)")
+```
 
-## ----eval=FALSE----------------------------------------------------------
 ##  exercises   Chapter 1
-##-------------------------------------------------------------------------
+
+```{r, eval=FALSE}
 ## data(airquality)
 ## plot(airquality[,-c(5,6)])
 
-## ----eval=FALSE----------------------------------------------------------
 ## # Fit the standard linear model
 ## air.lm <- lm(Ozone~Temp+Wind+Solar.R,data=airquality)
 ## summary(air.lm)
 
-## ----eval=FALSE----------------------------------------------------------
 ## op<-par(mfrow=c(1,3))
 ## termplot(air.lm,partial.resid=TRUE,se=T)
 ## par(op)
 
-## ----eval=FALSE----------------------------------------------------------
 ## op<-par(mfrow=c(1,2))
 ## plot(air.lm,which=1:2)
 ## par(op)
 
-## ----eval=FALSE----------------------------------------------------------
 ## library(gamlss)
 ## da <- na.omit(airquality)  # clear the data of NA's
 ## mno<-gamlss(Ozone~Temp+Wind+Solar.R, data=da)  # fit the model
 ## summary(mno)
 
-## ----eval=FALSE----------------------------------------------------------
 ## term.plot(mno, pages=1, partial=T)  # plot the fitted terms
 
-## ----eval=FALSE----------------------------------------------------------
 ## plot(mno)
 ## wp(mno)
 
-## ----eval=FALSE----------------------------------------------------------
 ## # fit different distributions
 ## mga <- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=GA)
 ## mig <- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=IG)
 ## mbccg <- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=BCCGo)
 ## GAIC(mno, mga, mig, mbccg)
 
-## ----eval=FALSE----------------------------------------------------------
 ## # fit smoothers
 ## mga1=gamlss(Ozone~pb(Temp)+pb(Wind)+pb(Solar.R),data=da,
 ##             family=GA)
 ## term.plot(mga1, pages=1)
 ## plot(mga1)
 ## wp(mga1)
-#-----------------
 ```
 
+## gamlss.demo()
 
 ```{r, eval=FALSE}
 #install.packages("gamlss.demo", dep=TRUE)
@@ -202,4 +205,5 @@ demoLpolyS()
 gamlss.demo()
 
 ```
+
 

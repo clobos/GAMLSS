@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="PT-br" xml:lang="PT-br">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>GAMLSS</title>
+  <title>Introdução ao GAMLSS</title>
   <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
 set in the _output.yml file.</p>" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="GAMLSS" />
+  <meta property="og:title" content="Introdução ao GAMLSS" />
   <meta property="og:type" content="book" />
   
   <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
@@ -19,7 +19,7 @@ set in the _output.yml file.</p>" />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="GAMLSS" />
+  <meta name="twitter:title" content="Introdução ao GAMLSS" />
   
   <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
 The HTML output format for this example is bookdown::gitbook,
@@ -29,7 +29,7 @@ set in the _output.yml file.</p>" />
 <meta name="author" content="Gustavo Thomas e Cristian Villegas" />
 
 
-<meta name="date" content="2023-03-13" />
+<meta name="date" content="2023-03-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -142,7 +142,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="#introdução"><i class="fa fa-check"></i><b>1</b> Introdução</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="#introdução"><i class="fa fa-check"></i><b>1</b> Introdução</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="#exercises-chapter-1"><i class="fa fa-check"></i><b>1.1</b> exercises Chapter 1</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="#gamlss.demo"><i class="fa fa-check"></i><b>1.2</b> gamlss.demo()</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -155,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">GAMLSS</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introdução ao GAMLSS</a>
           </h1>
         </div>
 
@@ -164,201 +168,363 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">GAMLSS</h1>
+<h1 class="title">Introdução ao GAMLSS</h1>
 <p class="author"><em>Gustavo Thomas e Cristian Villegas</em></p>
-<p class="date"><em>2023-03-13</em></p>
+<p class="date"><em>2023-03-14</em></p>
 </div>
 <div id="introdução" class="section level1 hasAnchor" number="1">
 <h1><span class="header-section-number">Capítulo 1</span> Introdução<a href="#introdução" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gamlss)</span></code></pre></div>
-<pre><code>## Carregando pacotes exigidos: splines</code></pre>
-<pre><code>## Carregando pacotes exigidos: gamlss.data</code></pre>
-<pre><code>## 
-## Attaching package: &#39;gamlss.data&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:datasets&#39;:
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gamlss)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>PPP <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>Fl, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>A, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>H, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>loc, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(PPP)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ----eval=FALSE----------------------------------------------------------</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="do">## R ~ Fl+A+H+loc</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>NO,  <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>l1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc,<span class="at">data=</span>rent)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(r1)</span></code></pre></div>
+<pre><code>##  (Intercept)           Fl            A           H1         loc2         loc3 
+## -2775.038803     8.839445     1.480755  -204.759562   134.052349   209.581472</code></pre>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(l1)</span></code></pre></div>
+<pre><code>##  (Intercept)           Fl            A           H1         loc2         loc3 
+## -2775.038803     8.839445     1.480755  -204.759562   134.052349   209.581472</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted</span>(r1, <span class="st">&quot;sigma&quot;</span>)[<span class="dv">1</span>]</span></code></pre></div>
+<pre><code>##        1 
+## 308.4768</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(r1)</span></code></pre></div>
+<pre><code>## ******************************************************************
+## Family:  c(&quot;NO&quot;, &quot;Normal&quot;) 
 ## 
-##     sleep</code></pre>
-<pre><code>## Carregando pacotes exigidos: gamlss.dist</code></pre>
-<pre><code>## Carregando pacotes exigidos: MASS</code></pre>
-<pre><code>## Carregando pacotes exigidos: nlme</code></pre>
-<pre><code>## Carregando pacotes exigidos: parallel</code></pre>
-<pre><code>##  **********   GAMLSS Version 5.4-3  **********</code></pre>
-<pre><code>## For more on GAMLSS look at https://www.gamlss.com/</code></pre>
-<pre><code>## Type gamlssNews() to see new features/changes/bug fixes.</code></pre>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtable)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>PPP <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>Fl, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>A, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>H, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(R<span class="sc">~</span>loc, <span class="at">data=</span>rent, <span class="at">col=</span><span class="fu">gray</span>(<span class="fl">0.7</span>), <span class="at">pch=</span><span class="dv">15</span>, <span class="at">cex=</span><span class="fl">0.5</span>) </span></code></pre></div>
-<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(PPP)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## R ~ Fl+A+H+loc</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>NO,  <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>l1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc,<span class="at">data=</span>rent)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(r1)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(l1)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="do">## ----tidy=TRUE, tidy.opts=list(width=60)---------------------------------</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted</span>(r1, <span class="st">&quot;sigma&quot;</span>)[<span class="dv">1</span>]</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(r1)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="fu">Rsq</span>(r1)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="do">## ----LM_residual_plot,echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1---------------</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r1)</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="do">### using gamlss</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>GA,  <span class="at">data=</span>rent)</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(r2)</span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(r2, <span class="st">&quot;sigma&quot;</span>)  <span class="do">### extract log(sigma)</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(r2)</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="do">### using glm </span></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>l2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span><span class="fu">Gamma</span>(<span class="at">link=</span><span class="st">&quot;log&quot;</span>),  <span class="at">data=</span>rent)</span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(l2)</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(l2)<span class="sc">$</span>dispersion  <span class="do">### extract phi</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(l2)</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(r2)</span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>r22 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>IG,  <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a><span class="fu">GAIC</span>(r1, r2, r22, <span class="at">k=</span><span class="dv">0</span>) <span class="co"># GD</span></span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a><span class="do">## ----GLM_residual_plot,echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1--------------</span></span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r2)</span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>r3 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>GA,  <span class="at">data=</span>rent, </span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(r2,r3)</span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(r3)</span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(r3) </span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a><span class="do">## ----GAM_termplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-------</span></span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a><span class="fu">term.plot</span>(r3, <span class="at">pages=</span><span class="dv">1</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a><span class="do">## ----GAM_wormplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-------</span></span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r3, <span class="at">ylim.all=</span>.<span class="dv">6</span>)</span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
-<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>r4 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, </span>
-<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>              <span class="at">family=</span>GA, <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>r5 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, </span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>              <span class="at">family=</span>IG, <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(r3, r4, r5)</span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a><span class="do">## ----MADAM_termplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-----</span></span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a><span class="fu">term.plot</span>(r4, <span class="at">pages=</span><span class="dv">1</span>, <span class="at">what=</span><span class="st">&quot;sigma&quot;</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(r4, <span class="at">what=</span><span class="st">&quot;sigma&quot;</span>)</span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a><span class="do">## ----MADAM_wormplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-----</span></span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r4, <span class="at">ylim.all=</span>.<span class="dv">6</span>)</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>r6 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc,</span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>              <span class="at">nu.fo=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">family=</span>BCCGo,  <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>r7 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc,<span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc,</span>
-<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>              <span class="at">nu.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>BCCGo,  <span class="at">data=</span>rent, </span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(r4, r6, r7)</span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a><span class="do">## ----WP_BCCG1_CH1, echo=TRUE, fig.show=&#39;hide&#39;, fig.asp=1-----------------</span></span>
-<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r6, <span class="at">ylim.all=</span>.<span class="dv">6</span>) ;  <span class="fu">title</span>(<span class="st">&quot;r6: BCCG(mu, sigma)&quot;</span>)</span>
-<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r7, <span class="at">ylim.all=</span>.<span class="dv">6</span>) ;  <span class="fu">title</span>(<span class="st">&quot;r7:  BCCG(mu, sigma, nu)&quot;</span>)</span>
-<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a><span class="do">##  exercises   Chapter 1</span></span>
-<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a><span class="do">##-------------------------------------------------------------------------</span></span>
-<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a><span class="do">## data(airquality)</span></span>
-<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(airquality[,-c(5,6)])</span></span>
-<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a><span class="do">## # Fit the standard linear model</span></span>
-<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a><span class="do">## air.lm &lt;- lm(Ozone~Temp+Wind+Solar.R,data=airquality)</span></span>
-<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a><span class="do">## summary(air.lm)</span></span>
-<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a><span class="do">## op&lt;-par(mfrow=c(1,3))</span></span>
-<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a><span class="do">## termplot(air.lm,partial.resid=TRUE,se=T)</span></span>
-<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a><span class="do">## par(op)</span></span>
-<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a><span class="do">## op&lt;-par(mfrow=c(1,2))</span></span>
-<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(air.lm,which=1:2)</span></span>
-<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a><span class="do">## par(op)</span></span>
-<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a><span class="do">## library(gamlss)</span></span>
-<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a><span class="do">## da &lt;- na.omit(airquality)  # clear the data of NA&#39;s</span></span>
-<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a><span class="do">## mno&lt;-gamlss(Ozone~Temp+Wind+Solar.R, data=da)  # fit the model</span></span>
-<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a><span class="do">## summary(mno)</span></span>
-<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a><span class="do">## term.plot(mno, pages=1, partial=T)  # plot the fitted terms</span></span>
-<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-120"><a href="#cb14-120" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(mno)</span></span>
-<span id="cb14-121"><a href="#cb14-121" aria-hidden="true" tabindex="-1"></a><span class="do">## wp(mno)</span></span>
-<span id="cb14-122"><a href="#cb14-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-123"><a href="#cb14-123" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-124"><a href="#cb14-124" aria-hidden="true" tabindex="-1"></a><span class="do">## # fit different distributions</span></span>
-<span id="cb14-125"><a href="#cb14-125" aria-hidden="true" tabindex="-1"></a><span class="do">## mga &lt;- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=GA)</span></span>
-<span id="cb14-126"><a href="#cb14-126" aria-hidden="true" tabindex="-1"></a><span class="do">## mig &lt;- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=IG)</span></span>
-<span id="cb14-127"><a href="#cb14-127" aria-hidden="true" tabindex="-1"></a><span class="do">## mbccg &lt;- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=BCCGo)</span></span>
-<span id="cb14-128"><a href="#cb14-128" aria-hidden="true" tabindex="-1"></a><span class="do">## GAIC(mno, mga, mig, mbccg)</span></span>
-<span id="cb14-129"><a href="#cb14-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-130"><a href="#cb14-130" aria-hidden="true" tabindex="-1"></a><span class="do">## ----eval=FALSE----------------------------------------------------------</span></span>
-<span id="cb14-131"><a href="#cb14-131" aria-hidden="true" tabindex="-1"></a><span class="do">## # fit smoothers</span></span>
-<span id="cb14-132"><a href="#cb14-132" aria-hidden="true" tabindex="-1"></a><span class="do">## mga1=gamlss(Ozone~pb(Temp)+pb(Wind)+pb(Solar.R),data=da,</span></span>
-<span id="cb14-133"><a href="#cb14-133" aria-hidden="true" tabindex="-1"></a><span class="do">##             family=GA)</span></span>
-<span id="cb14-134"><a href="#cb14-134" aria-hidden="true" tabindex="-1"></a><span class="do">## term.plot(mga1, pages=1)</span></span>
-<span id="cb14-135"><a href="#cb14-135" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(mga1)</span></span>
-<span id="cb14-136"><a href="#cb14-136" aria-hidden="true" tabindex="-1"></a><span class="do">## wp(mga1)</span></span>
-<span id="cb14-137"><a href="#cb14-137" aria-hidden="true" tabindex="-1"></a><span class="co">#-----------------</span></span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;gamlss.demo&quot;, dep=TRUE)</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on rpanel</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gamlss.demo)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Examples</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="co">#t family distribution</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.TF</span>()</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Skew Normal Type 1 distribution</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.SN1</span>()</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Box-Cox Power Exponential distribution</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.BCPE</span>()</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Demos for smoothing techniques</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.BSplines</span>()</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.PSplines</span>()</span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.interpolateSmo</span>()</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.histSmo</span>()</span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Interface for demonstrating the gamlss.family distributions</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="fu">demoDist</span>()</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Demo for local polynomial smoothing</span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="fu">demoLpolyS</span>()</span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="co">#The demo for gamlss distributions and smoothing</span></span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="fu">gamlss.demo</span>()</span></code></pre></div>
+## Call:  gamlss(formula = R ~ Fl + A + H + loc, family = NO,  
+##     data = rent, trace = FALSE) 
+## 
+## Fitting method: RS() 
+## 
+## ------------------------------------------------------------------
+## Mu link function:  identity
+## Mu Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -2775.0388   470.1352  -5.903 4.20e-09 ***
+## Fl              8.8394     0.3370  26.228  &lt; 2e-16 ***
+## A               1.4808     0.2385   6.208 6.55e-10 ***
+## H1           -204.7596    18.9858 -10.785  &lt; 2e-16 ***
+## loc2          134.0523    25.1430   5.332 1.09e-07 ***
+## loc3          209.5815    27.1286   7.725 1.76e-14 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ------------------------------------------------------------------
+## Sigma link function:  log
+## Sigma Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  5.73165    0.01594   359.7   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ------------------------------------------------------------------
+## No. of observations in the fit:  1969 
+## Degrees of Freedom for the fit:  7
+##       Residual Deg. of Freedom:  1962 
+##                       at cycle:  2 
+##  
+## Global Deviance:     28159 
+##             AIC:     28173 
+##             SBC:     28212.1 
+## ******************************************************************</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Rsq</span>(r1)</span></code></pre></div>
+<pre><code>## [1] 0.3372028</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----LM_residual_plot,echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1---------------</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r1)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre><code>## ******************************************************************
+##        Summary of the Quantile Residuals
+##                            mean   =  4.959554e-13 
+##                        variance   =  1.000508 
+##                coef. of skewness  =  0.7470097 
+##                coef. of kurtosis  =  4.844416 
+## Filliben correlation coefficient  =  0.9859819 
+## ******************************************************************</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">### using gamlss</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>GA,  <span class="at">data=</span>rent)</span></code></pre></div>
+<pre><code>## GAMLSS-RS iteration 1: Global Deviance = 27764.59 
+## GAMLSS-RS iteration 2: Global Deviance = 27764.59</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(r2)</span></code></pre></div>
+<pre><code>## (Intercept)          Fl           A          H1        loc2        loc3 
+##  2.86497701  0.01062319  0.00151005 -0.30007446  0.19076406  0.26408285</code></pre>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(r2, <span class="st">&quot;sigma&quot;</span>)  <span class="do">### extract log(sigma)</span></span></code></pre></div>
+<pre><code>## (Intercept) 
+##  -0.9821991</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(r2)</span></code></pre></div>
+<pre><code>## [1] 27764.59</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">### using glm </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>l2 <span class="ot">&lt;-</span> <span class="fu">glm</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span><span class="fu">Gamma</span>(<span class="at">link=</span><span class="st">&quot;log&quot;</span>),  <span class="at">data=</span>rent)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(l2)</span></code></pre></div>
+<pre><code>##  (Intercept)           Fl            A           H1         loc2         loc3 
+##  2.864943806  0.010623194  0.001510066 -0.300074001  0.190764594  0.264083376</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(l2)<span class="sc">$</span>dispersion  <span class="do">### extract phi</span></span></code></pre></div>
+<pre><code>## [1] 0.1377881</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">deviance</span>(l2)</span></code></pre></div>
+<pre><code>## [1] 282.5747</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(r2)</span></code></pre></div>
+<pre><code>## ******************************************************************
+## Family:  c(&quot;GA&quot;, &quot;Gamma&quot;) 
+## 
+## Call:  gamlss(formula = R ~ Fl + A + H + loc, family = GA,      data = rent) 
+## 
+## Fitting method: RS() 
+## 
+## ------------------------------------------------------------------
+## Mu link function:  log
+## Mu Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  2.8649770  0.5681289   5.043 5.01e-07 ***
+## Fl           0.0106232  0.0004128  25.735  &lt; 2e-16 ***
+## A            0.0015100  0.0002886   5.232 1.85e-07 ***
+## H1          -0.3000745  0.0231153 -12.982  &lt; 2e-16 ***
+## loc2         0.1907641  0.0305203   6.250 5.01e-10 ***
+## loc3         0.2640828  0.0329197   8.022 1.77e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ------------------------------------------------------------------
+## Sigma link function:  log
+## Sigma Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -0.98220    0.01558  -63.05   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ------------------------------------------------------------------
+## No. of observations in the fit:  1969 
+## Degrees of Freedom for the fit:  7
+##       Residual Deg. of Freedom:  1962 
+##                       at cycle:  2 
+##  
+## Global Deviance:     27764.59 
+##             AIC:     27778.59 
+##             SBC:     27817.69 
+## ******************************************************************</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>r22 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> Fl<span class="sc">+</span>A<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>IG,  <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">GAIC</span>(r1, r2, r22, <span class="at">k=</span><span class="dv">0</span>) <span class="co"># GD</span></span></code></pre></div>
+<pre><code>##     df      AIC
+## r2   7 27764.59
+## r22  7 27991.56
+## r1   7 28159.00</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----GLM_residual_plot,echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1--------------</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(r2)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<pre><code>## ******************************************************************
+##        Summary of the Quantile Residuals
+##                            mean   =  0.0004795675 
+##                        variance   =  1.000657 
+##                coef. of skewness  =  -0.1079453 
+##                coef. of kurtosis  =  3.255464 
+## Filliben correlation coefficient  =  0.9990857 
+## ******************************************************************</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>r3 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>GA,  <span class="at">data=</span>rent, </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(r2,r3)</span></code></pre></div>
+<pre><code>##          df      AIC
+## r3 11.21547 27705.65
+## r2  7.00000 27778.59</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ------------------------------------------------------------------------</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(r3)</span></code></pre></div>
+<pre><code>## ******************************************************************
+## Family:  c(&quot;GA&quot;, &quot;Gamma&quot;) 
+## 
+## Call:  gamlss(formula = R ~ pb(Fl) + pb(A) + H + loc, family = GA,  
+##     data = rent, trace = FALSE) 
+## 
+## Fitting method: RS() 
+## 
+## ------------------------------------------------------------------
+## Mu link function:  log
+## Mu Coefficients:
+##               Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  3.0851197  0.5692315   5.420 6.70e-08 ***
+## pb(Fl)       0.0103084  0.0004031  25.573  &lt; 2e-16 ***
+## pb(A)        0.0014062  0.0002893   4.861 1.26e-06 ***
+## H1          -0.3008111  0.0225869 -13.318  &lt; 2e-16 ***
+## loc2         0.1886692  0.0299295   6.304 3.58e-10 ***
+## loc3         0.2719856  0.0322862   8.424  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ------------------------------------------------------------------
+## Sigma link function:  log
+## Sigma Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -1.00196    0.01559  -64.27   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## ------------------------------------------------------------------
+## NOTE: Additive smoothing terms exist in the formulas: 
+##  i) Std. Error for smoothers are for the linear effect only. 
+## ii) Std. Error for the linear terms maybe are not accurate. 
+## ------------------------------------------------------------------
+## No. of observations in the fit:  1969 
+## Degrees of Freedom for the fit:  11.21547
+##       Residual Deg. of Freedom:  1957.785 
+##                       at cycle:  3 
+##  
+## Global Deviance:     27683.22 
+##             AIC:     27705.65 
+##             SBC:     27768.29 
+## ******************************************************************</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(r3) </span></code></pre></div>
+<pre><code>## Single term deletions for
+## mu
+## 
+## Model:
+## R ~ pb(Fl) + pb(A) + H + loc
+##            Df   AIC    LRT   Pr(Chi)    
+## &lt;none&gt;        27706                     
+## pb(Fl) 1.4680 28261 558.59 &lt; 2.2e-16 ***
+## pb(A)  4.3149 27798 101.14 &lt; 2.2e-16 ***
+## H      1.8445 27862 160.39 &lt; 2.2e-16 ***
+## loc    2.0346 27770  68.02 1.825e-15 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----GAM_termplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-------</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">term.plot</span>(r3, <span class="at">pages=</span><span class="dv">1</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----GAM_wormplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-------</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r3, <span class="at">ylim.all=</span>.<span class="dv">6</span>)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>r4 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">family=</span>GA, <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>r5 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, </span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">family=</span>IG, <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(r3, r4, r5)</span></code></pre></div>
+<pre><code>##          df      AIC
+## r4 22.25035 27614.78
+## r3 11.21547 27705.65
+## r5 21.82318 27716.66</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----MADAM_termplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-----</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="fu">term.plot</span>(r4, <span class="at">pages=</span><span class="dv">1</span>, <span class="at">what=</span><span class="st">&quot;sigma&quot;</span>, <span class="at">ask=</span><span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-5.png" width="672" /></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">drop1</span>(r4, <span class="at">what=</span><span class="st">&quot;sigma&quot;</span>)</span></code></pre></div>
+<pre><code>## Single term deletions for
+## sigma
+## 
+## Model:
+## ~pb(Fl) + pb(A) + H + loc
+##             Df   AIC    LRT   Pr(Chi)    
+## &lt;none&gt;         27615                     
+## pb(Fl) 4.02694 27631 24.683 5.997e-05 ***
+## pb(A)  3.87807 27659 52.167 1.067e-10 ***
+## H      0.88335 27615  1.866   0.14788    
+## loc    2.03694 27619  8.036   0.01872 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----MADAM_wormplot, echo=TRUE,fig.show=&#39;hide&#39;, fig.asp=1,cache=TRUE-----</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r4, <span class="at">ylim.all=</span>.<span class="dv">6</span>)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-6.png" width="672" /></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----cache=TRUE----------------------------------------------------------</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>r6 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc,</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">nu.fo=</span><span class="sc">~</span><span class="dv">1</span>, <span class="at">family=</span>BCCGo,  <span class="at">data=</span>rent, <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>r7 <span class="ot">&lt;-</span>  <span class="fu">gamlss</span>(R <span class="sc">~</span> <span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc,<span class="at">sigma.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc,</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">nu.fo=</span><span class="sc">~</span><span class="fu">pb</span>(Fl)<span class="sc">+</span><span class="fu">pb</span>(A)<span class="sc">+</span>H<span class="sc">+</span>loc, <span class="at">family=</span>BCCGo,  <span class="at">data=</span>rent, </span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">trace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(r4, r6, r7)</span></code></pre></div>
+<pre><code>##          df      AIC
+## r7 28.41391 27608.15
+## r6 22.48092 27611.02
+## r4 22.25035 27614.78</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ----WP_BCCG1_CH1, echo=TRUE, fig.show=&#39;hide&#39;, fig.asp=1-----------------</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r6, <span class="at">ylim.all=</span>.<span class="dv">6</span>) ;  <span class="fu">title</span>(<span class="st">&quot;r6: BCCG(mu, sigma)&quot;</span>)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-7.png" width="672" /></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wp</span>(r7, <span class="at">ylim.all=</span>.<span class="dv">6</span>) ;  <span class="fu">title</span>(<span class="st">&quot;r7:  BCCG(mu, sigma, nu)&quot;</span>)</span></code></pre></div>
+<p><img src="GAMLSS_Gustavo_files/figure-html/unnamed-chunk-4-8.png" width="672" /></p>
+<div id="exercises-chapter-1" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> exercises Chapter 1<a href="#exercises-chapter-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="do">## data(airquality)</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(airquality[,-c(5,6)])</span></span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="do">## # Fit the standard linear model</span></span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a><span class="do">## air.lm &lt;- lm(Ozone~Temp+Wind+Solar.R,data=airquality)</span></span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a><span class="do">## summary(air.lm)</span></span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="do">## op&lt;-par(mfrow=c(1,3))</span></span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="do">## termplot(air.lm,partial.resid=TRUE,se=T)</span></span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a><span class="do">## par(op)</span></span>
+<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a><span class="do">## op&lt;-par(mfrow=c(1,2))</span></span>
+<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(air.lm,which=1:2)</span></span>
+<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a><span class="do">## par(op)</span></span>
+<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a><span class="do">## library(gamlss)</span></span>
+<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a><span class="do">## da &lt;- na.omit(airquality)  # clear the data of NA&#39;s</span></span>
+<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a><span class="do">## mno&lt;-gamlss(Ozone~Temp+Wind+Solar.R, data=da)  # fit the model</span></span>
+<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="do">## summary(mno)</span></span>
+<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a><span class="do">## term.plot(mno, pages=1, partial=T)  # plot the fitted terms</span></span>
+<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-23"><a href="#cb52-23" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(mno)</span></span>
+<span id="cb52-24"><a href="#cb52-24" aria-hidden="true" tabindex="-1"></a><span class="do">## wp(mno)</span></span>
+<span id="cb52-25"><a href="#cb52-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-26"><a href="#cb52-26" aria-hidden="true" tabindex="-1"></a><span class="do">## # fit different distributions</span></span>
+<span id="cb52-27"><a href="#cb52-27" aria-hidden="true" tabindex="-1"></a><span class="do">## mga &lt;- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=GA)</span></span>
+<span id="cb52-28"><a href="#cb52-28" aria-hidden="true" tabindex="-1"></a><span class="do">## mig &lt;- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=IG)</span></span>
+<span id="cb52-29"><a href="#cb52-29" aria-hidden="true" tabindex="-1"></a><span class="do">## mbccg &lt;- gamlss(Ozone~Temp+Wind+Solar.R, data=da, family=BCCGo)</span></span>
+<span id="cb52-30"><a href="#cb52-30" aria-hidden="true" tabindex="-1"></a><span class="do">## GAIC(mno, mga, mig, mbccg)</span></span>
+<span id="cb52-31"><a href="#cb52-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-32"><a href="#cb52-32" aria-hidden="true" tabindex="-1"></a><span class="do">## # fit smoothers</span></span>
+<span id="cb52-33"><a href="#cb52-33" aria-hidden="true" tabindex="-1"></a><span class="do">## mga1=gamlss(Ozone~pb(Temp)+pb(Wind)+pb(Solar.R),data=da,</span></span>
+<span id="cb52-34"><a href="#cb52-34" aria-hidden="true" tabindex="-1"></a><span class="do">##             family=GA)</span></span>
+<span id="cb52-35"><a href="#cb52-35" aria-hidden="true" tabindex="-1"></a><span class="do">## term.plot(mga1, pages=1)</span></span>
+<span id="cb52-36"><a href="#cb52-36" aria-hidden="true" tabindex="-1"></a><span class="do">## plot(mga1)</span></span>
+<span id="cb52-37"><a href="#cb52-37" aria-hidden="true" tabindex="-1"></a><span class="do">## wp(mga1)</span></span></code></pre></div>
+</div>
+<div id="gamlss.demo" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> gamlss.demo()<a href="#gamlss.demo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages(&quot;gamlss.demo&quot;, dep=TRUE)</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Based on rpanel</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gamlss.demo)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Examples</span></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="co">#t family distribution</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.TF</span>()</span>
+<span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-9"><a href="#cb53-9" aria-hidden="true" tabindex="-1"></a><span class="co">#Skew Normal Type 1 distribution</span></span>
+<span id="cb53-10"><a href="#cb53-10" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.SN1</span>()</span>
+<span id="cb53-11"><a href="#cb53-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-12"><a href="#cb53-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Box-Cox Power Exponential distribution</span></span>
+<span id="cb53-13"><a href="#cb53-13" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.BCPE</span>()</span>
+<span id="cb53-14"><a href="#cb53-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-15"><a href="#cb53-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Demos for smoothing techniques</span></span>
+<span id="cb53-16"><a href="#cb53-16" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.BSplines</span>()</span>
+<span id="cb53-17"><a href="#cb53-17" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.PSplines</span>()</span>
+<span id="cb53-18"><a href="#cb53-18" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.interpolateSmo</span>()</span>
+<span id="cb53-19"><a href="#cb53-19" aria-hidden="true" tabindex="-1"></a><span class="fu">demo.histSmo</span>()</span>
+<span id="cb53-20"><a href="#cb53-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-21"><a href="#cb53-21" aria-hidden="true" tabindex="-1"></a><span class="co">#Interface for demonstrating the gamlss.family distributions</span></span>
+<span id="cb53-22"><a href="#cb53-22" aria-hidden="true" tabindex="-1"></a><span class="fu">demoDist</span>()</span>
+<span id="cb53-23"><a href="#cb53-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-24"><a href="#cb53-24" aria-hidden="true" tabindex="-1"></a><span class="co">#Demo for local polynomial smoothing</span></span>
+<span id="cb53-25"><a href="#cb53-25" aria-hidden="true" tabindex="-1"></a><span class="fu">demoLpolyS</span>()</span>
+<span id="cb53-26"><a href="#cb53-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-27"><a href="#cb53-27" aria-hidden="true" tabindex="-1"></a><span class="co">#The demo for gamlss distributions and smoothing</span></span>
+<span id="cb53-28"><a href="#cb53-28" aria-hidden="true" tabindex="-1"></a><span class="fu">gamlss.demo</span>()</span></code></pre></div>
 
+</div>
 </div>
             </section>
 

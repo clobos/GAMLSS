@@ -1,1 +1,3 @@
 introdução
+exercises-chapter-1
+gamlss.demo
